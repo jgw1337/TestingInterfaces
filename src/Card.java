@@ -2,14 +2,29 @@ public class Card implements IInfo {
 	private int value;
 	private String name, suit;
 
-	public static final String[] LIST_OF_SUITS = {"Club", "Diamond", "Heart", "Spade"};
-	public static final String[] LIST_OF_CARDS = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
-	public static final int[] LIST_OF_CARD_VALUES = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
-	
+	public enum Suits {
+		CLUB, DIAMOND, HEART, SPADE
+	}
 
-	public Card(String name, String suit) {
-		this.name = name;
-		this.suit = suit;
+	public enum Cards {
+		ACE(1), TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6), SEVEN(7), EIGHT(8), NINE(
+				9), TEN(10), JACK(11), QUEEN(12), KING(13);
+		private int cardValue;
+
+		private Cards(int cardValue) {
+			this.cardValue = cardValue;
+		}
+
+		public int getValue() {
+			return cardValue;
+		}
+
+	}
+
+	public Card(Cards name, Suits suit) {
+		this.name = name.toString();
+		this.suit = suit.toString();
+		this.value = name.getValue();
 	}
 
 	public int getValue() {

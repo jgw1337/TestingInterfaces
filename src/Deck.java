@@ -7,8 +7,8 @@ public class Deck implements IInfo {
 	private int cardCounter = 0;
 
 	public void init() {
-		for (String cardSuit : Card.LIST_OF_SUITS) {
-			for (String cardName : Card.LIST_OF_CARDS) {
+		for (Card.Suits cardSuit : Card.Suits.values()) {
+			for (Card.Cards cardName : Card.Cards.values()) {
 				cardCounter++;
 				cards.add(new Card(cardName, cardSuit));
 
